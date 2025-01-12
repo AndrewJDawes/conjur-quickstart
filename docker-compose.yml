@@ -88,3 +88,15 @@ services:
         command: infinity
         volumes:
             - ./conf/policy:/policy
+
+    manifest:
+        image: ghcr.io/codefactoryhu/manifest:0.1.5
+        container_name: manifest
+        environment:
+            CONJUR_API_URL: http://conjur:80
+            COOKIE_HTTP_SECURE: "false"
+        ports:
+            - 8082:8080
+        depends_on:
+            - conjur
+        restart: on-failure
