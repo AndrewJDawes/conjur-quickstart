@@ -51,7 +51,8 @@ services:
             - 8081:80
 
     conjur:
-        image: cyberark/conjur:andrewjdawes-test
+        # image: cyberark/conjur:andrewjdawes-test
+        image: ghcr.io/andrewjdawes/home-lab-conjur:latest
         container_name: conjur_server
         environment:
             DATABASE_URL: postgres://postgres:SuperSecretPg@database/postgres
